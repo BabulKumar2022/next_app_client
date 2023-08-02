@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Users = () => {
+const Loading = () => {
     return (
         <div>
-             Users
+            Loading
         </div>
     );
 };
 
-export default Users;
+export default Loading;
