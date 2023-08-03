@@ -1,0 +1,18 @@
+.container{
+    background-color: rgb(97, 27, 1);
+    height: 50px;
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.social{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon{
+    opacity: .6;
+    cursor: pointer;
+}
