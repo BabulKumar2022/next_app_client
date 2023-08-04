@@ -1,3 +1,48 @@
 .container{
-    background-color: rgb(70, 57, 17);
+    background-color: rgb(1, 114, 52);
+}
+.mainTitle{
+    font-size: 100px;
+
+}
+.selectTitle{
+    margin: 20px 0px;
+    text-align: center;
+}
+.items{
+    display: flex;
+    gap: 50px;
+    margin-bottom: 10px;
+    justify-content: center;
+ 
+}
+.item{
+    border: 5px solid #472222;
+    border-radius: 5px;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    background-size: cover !important;
+    margin-bottom: 15px;
+}
+.item:nth-child(1){
+background: url('/img/port-1.png');
+}
+.item:nth-child(2){
+background: url('/img/port-2.png');
+}
+.item:nth-child(3){
+background: url('/img/port-3.png');
+}
+.title{
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    color:rgb(4, 4, 77) ;
+}
+.item:hover .title{
+    color: rgb(4, 104, 70);
+    transition: .5s ease;
 }
