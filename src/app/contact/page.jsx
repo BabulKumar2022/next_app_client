@@ -12,8 +12,8 @@ const Contact = () => {
                 </div>
                 <div className={styles.formContainer}>
                 <form className={styles.form}>
-                    <input type="text" value="" placeholder='Name'className={styles.input}/>
-                    <input  type="email" value="" placeholder='Email'className={styles.input}/>
+                    <input readOnly type="text" value="" placeholder='Name'className={styles.input}/>
+                    <input readOnly type="email" value="" placeholder='Email'className={styles.input}/>
                     <textarea type="text" id="" cols="30" rows="10" placeholder='Write here message' className={styles.textArea}></textarea>
                 </form>
                 <button className={styles.button} type="button">Contact</button>
