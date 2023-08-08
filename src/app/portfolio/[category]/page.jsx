@@ -3,13 +3,19 @@ import styles from './page.module.css'
 import Image from 'next/image';
 import {items} from "./data.js"
 import {notFound} from "next/navigation";
+
+
+
 const getData = (cat) =>{
     const data = items[cat]
+    console.log(data)
     if(data){
         return data
     }
     return notFound()
+
 }
+
 
 const Category = ({params}) => {
     const data = getData(params.category)
@@ -38,3 +44,6 @@ const Category = ({params}) => {
 };
 
 export default Category;
+
+// next_user
+// pass = wgjP10PT6ThSAMMo
