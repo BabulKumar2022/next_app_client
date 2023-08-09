@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './page.module.css'
 import Image from 'next/image';
-import {notFound} from "next/navigation";
+// import {notFound} from "next/navigation";
+
 
 
 async function getData (id){
@@ -10,7 +11,7 @@ async function getData (id){
     });
     
     if(!res.ok){ 
-        return notFound()
+        throw new Error("Failed to fetch data")
     }
     return res.json();
 }
