@@ -3,6 +3,8 @@ import './globals.css'
 import { Inter, Roboto, Poppins } from 'next/font/google'
 import Footer from '@/components/footer/Footer'
 import { ThemeProvider } from '@/context/ThemeContext'
+import AuthProvider from '@/components/AuthProvider/AuthProvider'
+
 
 
 
@@ -14,16 +16,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
+  
   return (
     <html lang="en">
       
       <body className={inter.className}>
         <ThemeProvider>
-          <div className="container">
-                <Navbar/>
-                  {children}
-                <Footer/>
+          <AuthProvider>
+            <div className="container">
+                  <Navbar/>
+                    {children}
+                  <Footer/>
             </div>
+          </AuthProvider>
         </ThemeProvider>
  
       </body>
