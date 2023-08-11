@@ -22,4 +22,5 @@ const userSchema = new Schema({
  {timestamps: true}
  );
 
- export default mongoose.model("User", userSchema)
+ const User = mongoose.models.user || mongoose.model("user", userSchema);
+export default User;
