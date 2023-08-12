@@ -34,7 +34,7 @@ const Dashboard = () => {
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    "https://jsonplaceholder.typicode.com/posts",
+    "http://localhost:3000/api/posts",
     fetcher
   );
 
@@ -94,10 +94,13 @@ const handleSubmit = async (e) => {
                         ? "loading"
                        : data?.map((post) =>(
                             <div className={styles.post} key={post?._id}>
-                                {/* <div className={styles.imageContainer}>
-                                    <Image src={post.image} alt="" />
-                                </div> */}
+                                <div className={styles.imageContainer}>
+                                    <Image src={post.image} height={250} width={250} alt="" />
+                                </div>
                                 <h2 className={styles.postTitle}>{post?.title}</h2>
+                                <h2 className={styles.postTitle}>{post?.desc}</h2>
+                                <h2 className={styles.postTitle}>{post?.content}</h2>
+                                <h2 className={styles.postTitle}>{post?.username}</h2>
                                 <span  className={styles.delete}
                                 onClick={() => handleDelete(post._id)}>X</span>
                             </div>

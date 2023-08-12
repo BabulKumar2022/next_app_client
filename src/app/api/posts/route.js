@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import connect from "@/utils/db";
 import Post from "../../../models/Post";
-// import post from "../../../models/Post";
+
 
 export const GET = async (request) =>{
     const url = new URL(request.url);
@@ -20,21 +20,36 @@ export const GET = async (request) =>{
 
 
 
-export const POST = async (request) =>{
-    const body = await request.json();
-    const newPost = new Post(body)
+// export const POST = async (request) =>{
+//     const body = await request.json();
+//     const newPost = new Post(body)
    
         
-        console.log(newPost)
-    try {
-        await connect();
-        await newPost.insertOne();
+//         console.log(newPost)
+//     try {
+//         await connect();
+//         await newPost.create();
         
-        return new NextResponse("Post created", {status: 201});
-    }
-     catch (err) {
-        return new NextResponse("Database Error", {status: 500});
-    }
+//         return new NextResponse("Post created", {status: 201});
+//     }
+//      catch (err) {
+//         return new NextResponse("Database Error", {status: 500});
+//     }
 
-    // return new NextResponse("It is work", {status: 200});
+//     // return new NextResponse("It is work", {status: 200});
+// }
+
+// create post
+export async function POST(request){
+    const {title, desc, image, content,username} = await request.json()
+    await connect();
+    await Post.create({title, desc, image, content,username});
+    return NextResponse.json({message: "Add post create"}, {status: 200})
 }
+
+//get all post
+// export async function GET(){
+//     await connect();
+//     const allPost = await Post.find();
+//     NextResponse.json({allPost});
+// }
