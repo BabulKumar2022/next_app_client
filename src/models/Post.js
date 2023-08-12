@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const {Schema} = mongoose
+const {Schema} = mongoose;
 
 const postSchema = new Schema({
     title:{
@@ -12,7 +12,7 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    img:{
+    image:{
         type: String,
         unique: true,
     },
@@ -28,6 +28,6 @@ const postSchema = new Schema({
  {timestamps: true}
  );
 
- const post = mongoose.models.post && mongoose.model("Post", postSchema)
+ const post = mongoose.models.Post || mongoose.model("Post", postSchema)
 
  export default post

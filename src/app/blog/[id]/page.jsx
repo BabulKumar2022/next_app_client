@@ -6,23 +6,17 @@ import { notFound } from 'next/navigation';
 
 
 
-async function getData (id){
-    const res = await fetch(`http://localhost:3000/api/posts/${id}`,{
-        cache: "no-store"
-    });
-    
-    if(!res.ok){ 
-        // throw new Error("Failed to fetch data")
-        return notFound()
+
+
+async function getData(id){
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+            cache: "no-store",
+    })
+
+    if(!res.ok){
+       return notFound()
     }
     return res.json();
-}
-export async function generateMetadata ({params}){
-    const post = await getData(params.id)
-    return{
-        title: post.title,
-        description: post.desc,
-    }
 }
 
 const BlogPost = async ({params}) => {
@@ -32,21 +26,21 @@ const BlogPost = async ({params}) => {
             <div className={styles.top}>
                 <div className={styles.info}>
                     <h1 className={styles.title}>{data.title}</h1>
-                    <p className={styles.desc}>{data.desc}</p>
+                    {/* <p className={styles.desc}>{data.desc}</p>
                         <div className={styles.author}>
                             <Image src={data.image} width={40} height={40} alt='' className={styles.avatar}/>
                             <span className={styles.username}>{data.username}</span>
-                        </div>
+                        </div> */}
                 </div>
-                <div className={styles.imageContainer}>
+                {/* <div className={styles.imageContainer}>
                     <Image src={data.image} width={450} height={300} alt='' className={styles.image}/>
-                </div>
+                </div> */}
             </div>
-            <div className={styles.content}>
+            {/* <div className={styles.content}>
                 <p className={styles.text}>
                         {data.content}
                 </p>
-            </div>
+            </div> */}
         </div>
     );
 };

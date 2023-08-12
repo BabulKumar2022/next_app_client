@@ -25,13 +25,16 @@ const Dashboard = () => {
     //     }
     //     getData()
     // },[])
+    //---------------------------------------
+    // console.log(data)
     const session = useSession();
     console.log(session)
     const router = useRouter();
+    //-----------------------------------------
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    `/api/posts?username=${session?.data?.user.name}`,
+    "https://jsonplaceholder.typicode.com/posts",
     fetcher
   );
 
@@ -43,7 +46,7 @@ const Dashboard = () => {
     if(session.status === "unauthenticated"){
         return router?.push("/dashboard/login")
     }
-//------------------------
+// //------------------------
 const handleSubmit = async (e) => {
     e.preventDefault();
     const title = e.target[0].value;
@@ -91,9 +94,9 @@ const handleSubmit = async (e) => {
                         ? "loading"
                        : data?.map((post) =>(
                             <div className={styles.post} key={post?._id}>
-                                <div className={styles.imageContainer}>
+                                {/* <div className={styles.imageContainer}>
                                     <Image src={post.image} alt="" />
-                                </div>
+                                </div> */}
                                 <h2 className={styles.postTitle}>{post?.title}</h2>
                                 <span  className={styles.delete}
                                 onClick={() => handleDelete(post._id)}>X</span>
